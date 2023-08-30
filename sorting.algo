@@ -1,22 +1,14 @@
-PROCEDURE swap(var x:INTEGER,var y:INTEGER)
+PROCEDURE insertion-sort(var arr : ARRAY_OF INTEGER[length])
 VAR
-  aux:INTEGER
+  set_declarations
 BEGIN
-aux:= x;
-x:=y;
-y:=aux
+  FOR i FROM 1 TO arr.length - 1 STEP step  DO
+    current:=arr[i]
+    j:=i - 1
+    WHILE (j >= 0 AND arr[j] > current ) DO
+    arr[j+1] := arr[j]
+    j:=j-1
+    END_WHILE
+    arr[j+1]=current
+  END_FOR
 END
-
-PROCEDURE bubble-sort(VAR tab : ARRAY_OF INTEGER[30])
-VAR
-i,j:INTEGER
-BEGIN
-
-FOR i FROM 0 TO tab.length - 1 STEP 1  DO
-FOR j FROM 0 TO tab.length - i - 1 STEP step  DO
-  if(tab[j]>tab[j+1]) then
-swap(tab[j],tab[j+1])
-end if
-END_FOR
-END_FOR
-END 
